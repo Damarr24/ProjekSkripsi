@@ -395,3 +395,42 @@ footer {
   color: #555;
   border-top: 1px solid #ddd;
 }
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+.error .error-text {
+  display: block;
+}
+
+.form-control.error {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+}
+.progress-indicator {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.progress-indicator .step.active {
+    font-weight: bold;
+    color: #2c3e50;
+}
+.input-box.error .form-control {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+}
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.15rem rgba(31, 58, 95, 0.15);
+}
+.progress-step {
+  opacity: 0.5;
+}
+
+.progress-step.active {
+  opacity: 1;
+}

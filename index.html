@@ -21,58 +21,123 @@
 
   <img src="src/logo_berAKHLAK.png" alt="Logo BerAKHLAK" class="logo-right">
 </header>
-   
+   <div id="progressIndicator" class="progress-indicator mb-3">
+    <span id="stepSurat" class="step active">1️⃣ Data Surat</span>
+    <span>›</span>
+    <span id="stepPemohon" class="step">2️⃣ Data Pemohon</span>
+    <span>›</span>
+    <span id="stepUpload" class="step">3️⃣ Upload Berkas</span>
+</div>
     <div class="container">
+        <div id="globalError"
+            class="alert alert-warning d-none">
+            Masih ada data yang perlu dilengkapi, silakan cek kolom yang ditandai warna merah.
+        </div>
         <div class="title">Formulir Registrasi Penelitian</div>
         <div class="content">
+            <div id="previewBox" class="alert alert-info mb-3 d-none">
+                <strong>Ringkasan Data:</strong>
+                <ul class="mb-0">
+                    <li><b>Nama:</b> <span id="pvNama"></span></li>
+                    <li><b>Judul:</b> <span id="pvJudul"></span></li>
+                    <li><b>Tanggal:</b> <span id="pvTanggal"></span></li>
+                    <li><b>File:</b> <span id="pvFile"></span></li>
+                </ul>
+            </div>
             <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbwyZ5WJGmg1qkPgjuiHGJrGzAIFNQWumpw92FBoun7S60oTYriJQ_6yxgcDFBBOqYdQ/exec" method="POST">
                 <input type="hidden" name="fileContent" id="fileContent">
                 <input type="hidden" name="filename" id="filename">
-                <div><h5>Di Mohon Saat Mengisi Form, Setiap Awal Kata/Teks Menggunakan Huruf Kapital, Terima Kasih.</h5></div>
-                <div class="user-details">
                     <div class="input-box">
-                        <label for="atasnama" class="form-label">Memperhatikan Jabatan Penanggung Jawab (Contoh: Wakil Dekan 1)</label>
-                        <input type="text" id="atasnama" name="atasnama" class="form-control" placeholder="Tulis Jabatannya Yang Bertanda tangan" required>
-                    </div>
+                    <label for="atasnama" class="form-label">
+                        Memperhatikan Jabatan Penanggung Jawab (Contoh: Wakil Dekan 1)
+                    </label>
+                    <input type="text"
+                        id="atasnama"
+                        name="atasnama"
+                        class="form-control required-field capitalize"
+                        placeholder="Tulis Jabatannya Yang Bertanda Tangan" required>
+                    <small class="error-text">Wajib diisi</small>
+                </div>
                     <div class="input-box">
                         <label for="fakultas" class="form-label">Memperhatikan Fakultas</label>
-                        <input type="text" id="fakultas" name="fakultas" class="form-control" placeholder="Contoh: Fakultas Teknik" required>
+                        <input type="text" 
+                            id="fakultas" 
+                            name="fakultas" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Contoh: Fakultas Teknik" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="nama_lembaga" class="form-label">Memerhatikan Nama Kampus/Lembaga</label>
-                        <input type="text" id="nama_lembaga" name="nama_lembaga" class="form-control" placeholder="Nama Lengkap Kampus/Lembaga" required>
+                        <input type="text" 
+                            id="nama_lembaga" 
+                            name="nama_lembaga" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Nama Lengkap Kampus/Lembaga" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="nomor_surat" class="form-label">Memperhatikan Nomor Surat</label>
-                        <input type="text" id="nomor_surat" name="nomor_surat" class="form-control" placeholder="Contoh: xxx" required>
+                        <input type="text" 
+                            id="nomor_surat" 
+                            name="nomor_surat" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Contoh: xxx" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="tgl_surat" class="form-label">Memperhatikan Tanggal Surat Dibuat</label>
                         <div class="input-group">
-                            <input type="date" id="tgl_surat" name="tgl_surat" class="form-control" required>
+                            <input type="date" 
+                                id="tgl_surat" 
+                                name="tgl_surat" 
+                                class="form-control required-field" required>
                             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                         </div>
+                            <small class="error-text">Wajib diisi</small>
                     </div>
-                    <div class="input-box">
-                        <label for="perihal" class="form-label">Memperhatikan Perihal</label>
-                        <div class="dropdown-icon">
-                            <select id="perihal" name="perihal" class="form-control" required>
-                                <option value="" disabled selected>Pilih Perihal</option>
-                                <option value="Permohonan Izin Penelitian">Permohonan Izin Penelitian</option>
-                                <option value="Permohonan Izin Penyebaran Kuesioner">Permohonan Izin Penyebaran Kuesioner</option>
-                                <option value="Permohonan Izin Penelitian dan Penyebaran Kuesioner">Permohonan Izin Penelitian dan Penyebaran Kuesioner</option>
-                            </select>
-                            <span class="dropdown-arrow">&#9662;</span>
+                        <div class="input-box">
+                            <label for="perihal" class="form-label">
+                                Memperhatikan Perihal
+                            </label>
+                            <div class="dropdown-icon">
+                                <select id="perihal"
+                                    name="perihal"
+                                    class="form-control required-field"
+                                    required>
+                                    <option value="" disabled selected>Pilih Perihal</option>
+                                    <option value="Permohonan Izin Penelitian">
+                                        Permohonan Izin Penelitian
+                                    </option>
+                                    <option value="Permohonan Izin Penyebaran Kuesioner">
+                                        Permohonan Izin Penyebaran Kuesioner
+                                    </option>
+                                    <option value="Permohonan Izin Penelitian dan Penyebaran Kuesioner">
+                                        Permohonan Izin Penelitian dan Penyebaran Kuesioner
+                                    </option>
+                                </select>
+                                <span class="dropdown-arrow">&#9662;</span>
+                            </div>
+                            <small class="error-text">Wajib dipilih</small>
                         </div>
-                    </div>
                     <div class="input-box">
                         <label for="nama" class="form-label">Nama Lengkap Sesuai KTP</label>
-                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap Pemohon Rekomendasi Penelitian" required>
+                        <input type="text" 
+                            id="nama" 
+                            name="nama" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Nama Lengkap Pemohon Rekomendasi Penelitian" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div><h6>Detail Alamat. Silakan Isi Sesuai Format yang Diminta:</h6></div>
                     <div class="input-box">
                         <label for="alamat" class="form-label">Nama Jalan/Desa/Kelurahan</label>
-                        <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Nama Jalan/Desa/Kelurahan Pemohon Rekomendasi Penelitian" required>
+                        <input type="text" 
+                            id="alamat" 
+                            name="alamat" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Nama Jalan/Desa/Kelurahan Pemohon Rekomendasi Penelitian" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-row">
                         <div class="input-box half-width">
@@ -82,13 +147,13 @@
                             <input type="text"
                                 id="rukun_tetangga_rt"
                                 name="rukun_tetangga_rt"
-                                class="form-control"
+                                class="form-control required-field"
                                 placeholder="001"
                                 maxlength="3"
-                                pattern="\d{3}"
                                 inputmode="numeric"
                                 required
                                 oninput="onlyThreeDigits(this)">
+                            <small class="error-text">Harus 3 digit (contoh: 001)</small>
                         </div>
                         <div class="input-box half-width">
                             <label for="rukun_warga_rw" class="form-label">
@@ -97,80 +162,134 @@
                             <input type="text"
                                 id="rukun_warga_rw"
                                 name="rukun_warga_rw"
-                                class="form-control"
-                                placeholder="002"
+                                class="form-control required-field"
+                                placeholder="001"
                                 maxlength="3"
-                                pattern="\d{3}"
                                 inputmode="numeric"
                                 required
                                 oninput="onlyThreeDigits(this)">
+                            <small class="error-text">Harus 3 digit (contoh: 001)</small>
                         </div>
                     </div>
                     <div class="input-row">
                         <div class="input-box half-width">
                             <label for="kecamatan" class="form-label">Kecamatan</label>
-                            <input type="text" id="kecamatan" name="kecamatan" class="form-control" placeholder="Kecamatan Pemohon Rekomendasi Penelitian" required>
+                            <input type="text" 
+                                id="kecamatan" 
+                                name="kecamatan" 
+                                class="form-control required-field capitalize" 
+                                placeholder="Kecamatan Pemohon Rekomendasi Penelitian" required>
+                            <small class="error-text">Wajib diisi</small>
                         </div>
                         <div class="input-box half-width">
                             <label for="kabupaten" class="form-label">Kabupaten</label>
-                            <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Kabupaten Pemohon Rekomendasi Penelitian" required>
+                            <input type="text" 
+                                id="kabupaten" 
+                                name="kabupaten" 
+                                class="form-control required-field capitalize" 
+                                placeholder="Kabupaten Pemohon Rekomendasi Penelitian" required>
+                                <small class="error-text">Wajib diisi</small>
                         </div>
                     </div>
                     <div class="input-box">
                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                        <input type="text" id="pekerjaan" name="pekerjaan" class="form-control" placeholder="Pekerjaan Pemohon Rekomendasi Penelitian" required>
+                        <input type="text" 
+                            id="pekerjaan" 
+                            name="pekerjaan" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Pekerjaan Pemohon Rekomendasi Penelitian" required>
+                            <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="email" class="form-label">Email Aktif</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Pemohon Rekomendasi Penelitian" required>
+                        <input type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-control required-field" 
+                            placeholder="Email Pemohon Rekomendasi Penelitian" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="nomor_hp" class="form-label">Nomor HP/Nomor WhatsApp</label>
-                        <input type="tel" id="nomor_hp" name="nomor_hp" class="form-control" placeholder="Nomor HP Pemohon Rekomendasi Penelitian" required>
+                        <input type="tel" 
+                            id="nomor_hp" 
+                            name="nomor_hp" 
+                            class="form-control required-field" 
+                            placeholder="Nomor HP Pemohon Rekomendasi Penelitian" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="proposal" class="form-label">Judul/Nama Proposal</label>
-                        <input type="text" id="proposal" name="proposal" class="form-control" placeholder="Judul Proposal/Nama Penelitian" required>
+                        <input type="text" 
+                            id="proposal" 
+                            name="proposal" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Judul Proposal/Nama Penelitian" required>
+                            <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="lokasi" class="form-label">Nama OPD/Bidang Penelitian</label>
-                        <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Jika lebih dari 1, ketik saja 1 dimana, 2 dimana" required>
+                        <input type="text" 
+                            id="lokasi" 
+                            name="lokasi" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Jika lebih dari 1, ketik saja 1 dimana, 2 dimana" required>
+                            <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="bidang" class="form-label">Prodi/Jurusan</label>
-                        <input type="text" id="bidang" name="bidang" class="form-control" placeholder="Prodi/Jurusan Pemohon" required>
+                        <input type="text" 
+                            id="bidang" 
+                            name="bidang" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Prodi/Jurusan Pemohon" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="tanggal_mulai" class="form-label">Tanggal Mulai Penelitian (Maksimal 6 Bulan)</label>
                         <div class="input-group">
-                            <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" required>
+                            <input type="date" 
+                                id="tanggal_mulai" 
+                                name="tanggal_mulai" 
+                                class="form-control required-field" required>
                             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                         </div>
+                         <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="tanggal_selesai" class="form-label">Tanggal Selesai Penelitian (Maksimal 6 Bulan)</label>
                         <div class="input-group">
-                            <input type="date" id="tanggal_selesai" name="tanggal_selesai" class="form-control" required>
+                            <input type="date" 
+                                id="tanggal_selesai" 
+                                name="tanggal_selesai" 
+                                class="form-control required-field" required>
                             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                         </div>
+                         <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                         <label for="penanggung_jawab" class="form-label">Nama Dan Gelar Penanggung Jawab(Yang Ber TTD Pada Surat Dari Kampus)</label>
-                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" placeholder="Nama Lengkap Penanggung Jawab Surat Pengantar Dari Kampus/Lembaga" required>
+                        <input type="text" 
+                            id="penanggung_jawab" 
+                            name="penanggung_jawab" 
+                            class="form-control required-field capitalize" 
+                            placeholder="Nama Lengkap Penanggung Jawab Surat Pengantar Dari Kampus/Lembaga" required>
+                        <small class="error-text">Wajib diisi</small>
                     </div>
                     <div class="input-box">
                     <label class="form-label">Anggota Peneliti</label>
-                    <select id="opsi_anggota" class="form-control" required onchange="toggleAnggota()">
+                    <select id="opsi_anggota" class="form-control required-field" required onchange="toggleAnggota()">
                         <option value="">-- Pilih --</option>
                         <option value="-">Tidak Ada</option>
                         <option value="ada">Ada</option>
                     </select>
+                    <small class="error-text">Wajib dipilih</small>
                     </div>
                     <div class="input-box">
                     <textarea
                         id="anggota_peneliti"
                         name="anggota_peneliti"
-                        class="form-control"
+                        class="form-control required-field capitalize"
                         placeholder="1. Nama Lengkap
                     2. Nama Lengkap"
                         style="display:none"></textarea>
@@ -184,6 +303,7 @@
                             </a>
                             <input id="attach" name="attach" type="file" class="form-control ms-3" accept=".zip,.rar" required>
                         </div>
+                        <small class="error-text">Wajib unggah file</small>
                     </div>                 
                     <div class="button-container">
                         <button type="button" class="btn-submit d-flex align-items-center" onclick="showFileNotification();">

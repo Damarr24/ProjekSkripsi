@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrasi Penelitian</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="src/Logo_Kudus_Fix.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="header">
+  <div class="header-left">
+        <img src="src/LOGO.png" alt="Logo Kesbangpol" class="logo-left">
+    <div class="header-title">
+      <p class="instansi-text">
+        Badan Kesatuan Bangsa<br>dan Politik Kabupaten Kudus
+      </p>
+    </div>
+  </div>
+
+  <img src="src/logo_berAKHLAK.png" alt="Logo BerAKHLAK" class="logo-right">
+</header>
+   
+    <div class="container">
+        <div class="title">Formulir Registrasi Penelitian</div>
+        <div class="content">
+            <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbwyZ5WJGmg1qkPgjuiHGJrGzAIFNQWumpw92FBoun7S60oTYriJQ_6yxgcDFBBOqYdQ/exec" method="POST">
+                <input type="hidden" name="fileContent" id="fileContent">
+                <input type="hidden" name="filename" id="filename">
+                <div><h5>Di Mohon Saat Mengisi Form, Setiap Awal Kata/Teks Menggunakan Huruf Kapital, Terima Kasih.</h5></div>
+                <div class="user-details">
+                    <div class="input-box">
+                        <label for="atasnama" class="form-label">Memperhatikan Jabatan Penanggung Jawab (Contoh: Wakil Dekan 1)</label>
+                        <input type="text" id="atasnama" name="atasnama" class="form-control" placeholder="Tulis Jabatannya Yang Bertanda tangan" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="fakultas" class="form-label">Memperhatikan Fakultas</label>
+                        <input type="text" id="fakultas" name="fakultas" class="form-control" placeholder="Contoh: Fakultas Teknik" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="nama_lembaga" class="form-label">Memerhatikan Nama Kampus/Lembaga</label>
+                        <input type="text" id="nama_lembaga" name="nama_lembaga" class="form-control" placeholder="Nama Lengkap Kampus/Lembaga" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="nomor_surat" class="form-label">Memperhatikan Nomor Surat</label>
+                        <input type="text" id="nomor_surat" name="nomor_surat" class="form-control" placeholder="Contoh: xxx" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="tgl_surat" class="form-label">Memperhatikan Tanggal Surat Dibuat</label>
+                        <div class="input-group">
+                            <input type="date" id="tgl_surat" name="tgl_surat" class="form-control" required>
+                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="perihal" class="form-label">Memperhatikan Perihal</label>
+                        <div class="dropdown-icon">
+                            <select id="perihal" name="perihal" class="form-control" required>
+                                <option value="" disabled selected>Pilih Perihal</option>
+                                <option value="Permohonan Izin Penelitian">Permohonan Izin Penelitian</option>
+                                <option value="Permohonan Izin Penyebaran Kuesioner">Permohonan Izin Penyebaran Kuesioner</option>
+                                <option value="Permohonan Izin Penelitian dan Penyebaran Kuesioner">Permohonan Izin Penelitian dan Penyebaran Kuesioner</option>
+                            </select>
+                            <span class="dropdown-arrow">&#9662;</span>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="nama" class="form-label">Nama Lengkap Sesuai KTP</label>
+                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap Pemohon Rekomendasi Penelitian" required>
+                    </div>
+                    <div><h6>Detail Alamat. Silakan Isi Sesuai Format yang Diminta:</h6></div>
+                    <div class="input-box">
+                        <label for="alamat" class="form-label">Nama Jalan/Desa/Kelurahan</label>
+                        <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Nama Jalan/Desa/Kelurahan Pemohon Rekomendasi Penelitian" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-box half-width">
+                            <label for="rukun_tetangga_rt" class="form-label">
+                                RT (3 digit. Contoh 001)
+                            </label>
+                            <input type="text"
+                                id="rukun_tetangga_rt"
+                                name="rukun_tetangga_rt"
+                                class="form-control"
+                                placeholder="001"
+                                maxlength="3"
+                                pattern="\d{3}"
+                                inputmode="numeric"
+                                required
+                                oninput="onlyThreeDigits(this)">
+                        </div>
+                        <div class="input-box half-width">
+                            <label for="rukun_warga_rw" class="form-label">
+                                RW (3 digit. Contoh 002)
+                            </label>
+                            <input type="text"
+                                id="rukun_warga_rw"
+                                name="rukun_warga_rw"
+                                class="form-control"
+                                placeholder="002"
+                                maxlength="3"
+                                pattern="\d{3}"
+                                inputmode="numeric"
+                                required
+                                oninput="onlyThreeDigits(this)">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-box half-width">
+                            <label for="kecamatan" class="form-label">Kecamatan</label>
+                            <input type="text" id="kecamatan" name="kecamatan" class="form-control" placeholder="Kecamatan Pemohon Rekomendasi Penelitian" required>
+                        </div>
+                        <div class="input-box half-width">
+                            <label for="kabupaten" class="form-label">Kabupaten</label>
+                            <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Kabupaten Pemohon Rekomendasi Penelitian" required>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                        <input type="text" id="pekerjaan" name="pekerjaan" class="form-control" placeholder="Pekerjaan Pemohon Rekomendasi Penelitian" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="email" class="form-label">Email Aktif</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Pemohon Rekomendasi Penelitian" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="nomor_hp" class="form-label">Nomor HP/Nomor WhatsApp</label>
+                        <input type="tel" id="nomor_hp" name="nomor_hp" class="form-control" placeholder="Nomor HP Pemohon Rekomendasi Penelitian" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="proposal" class="form-label">Judul/Nama Proposal</label>
+                        <input type="text" id="proposal" name="proposal" class="form-control" placeholder="Judul Proposal/Nama Penelitian" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="lokasi" class="form-label">Nama OPD/Bidang Penelitian</label>
+                        <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Jika lebih dari 1, ketik saja 1 dimana, 2 dimana" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="bidang" class="form-label">Prodi/Jurusan</label>
+                        <input type="text" id="bidang" name="bidang" class="form-control" placeholder="Prodi/Jurusan Pemohon" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="tanggal_mulai" class="form-label">Tanggal Mulai Penelitian (Maksimal 6 Bulan)</label>
+                        <div class="input-group">
+                            <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" required>
+                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="tanggal_selesai" class="form-label">Tanggal Selesai Penelitian (Maksimal 6 Bulan)</label>
+                        <div class="input-group">
+                            <input type="date" id="tanggal_selesai" name="tanggal_selesai" class="form-control" required>
+                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="penanggung_jawab" class="form-label">Nama Dan Gelar Penanggung Jawab(Yang Ber TTD Pada Surat Dari Kampus)</label>
+                        <input type="text" id="penanggung_jawab" name="penanggung_jawab" class="form-control" placeholder="Nama Lengkap Penanggung Jawab Surat Pengantar Dari Kampus/Lembaga" required>
+                    </div>
+                    <div class="input-box">
+                    <label class="form-label">Anggota Peneliti</label>
+                    <select id="opsi_anggota" class="form-control" required onchange="toggleAnggota()">
+                        <option value="">-- Pilih --</option>
+                        <option value="-">Tidak Ada</option>
+                        <option value="ada">Ada</option>
+                    </select>
+                    </div>
+                    <div class="input-box">
+                    <textarea
+                        id="anggota_peneliti"
+                        name="anggota_peneliti"
+                        class="form-control"
+                        placeholder="1. Nama Lengkap
+                    2. Nama Lengkap"
+                        style="display:none"></textarea>
+                    </div>
+                    <div class="input-box">
+                        <label for="file" class="form-label">Unggah Semua File Jadi 1 berformat zip/rar. Seperti Gambar di Bawah Ini:</label>
+                        <div class="d-flex align-items-center flex-column">
+                            <img src="src/CONTOH_DATA_YANG_HARUS_DIKIRIM.jpg" alt="Contoh Gambar" class="img-thumbnail me-3" style="width: 450px; height: 300px; margin-bottom: 10px;">
+                            <a href="https://drive.google.com/file/d/1gx_q1VbWfm4s9C2ATHBwd2ukJpAgUdWH/view?usp=sharing" target="_blank" class="btn btn-primary mb-3">
+                                Klik Ini Untuk Lebih Jelasnya
+                            </a>
+                            <input id="attach" name="attach" type="file" class="form-control ms-3" accept=".zip,.rar" required>
+                        </div>
+                    </div>                 
+                    <div class="button-container">
+                        <button type="button" class="btn-submit d-flex align-items-center" onclick="showFileNotification();">
+                            <span id="btn-text">Kirim Data</span>
+                            <div id="loading-spinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"></div>
+                        </button>
+                        <button type="reset" class="btn-reset">Reset Formulir</button>
+                    </div>
+                </div>
+            </form>
+            <div class="contact-us">
+                <p>Kesulitan dengan Alur Pengajuan Surat Rekomendasi Penelitian? Silakan Klik Ikon di Bawah Ini:</p>
+                <div class="social-links">
+                    <div class="social-link">
+                        <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4NDA5NjE2NDEzMDc0MzYy?story_media_id=3429253493271934387_44729739981&igsh=MWdzZTZ2OXhkYzF0cQ==" target="_blank">
+                            <img src="src/instagram_logo.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <strong>Sorotan Instagram</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-us">
+                <p>Butuh Bantuan Lain? Silakan Kontak Kami dengan Klik Ikon di Bawah Ini:</p>
+                <div class="social-links">
+                    <div class="social-link">
+                        <a href="https://www.instagram.com/kesbangpol.kudus?igsh=MTZybzUxNmgzYm9vNg==" target="_blank">
+                            <img src="src/instagram_logo.png" alt="Instagram" class="social-icon">
+                        </a>
+                        <strong>Instagram</strong>
+                    </div>
+                    <div class="social-link">
+                        <a href="https://wa.me/6285283835544" target="_blank">
+                            <img src="src/whatsapp_logo.png" alt="WhatsApp" class="social-icon">
+                        </a>
+                        <strong>WhatsApp</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="notification" class="notification d-none">
+        Terima kasih atas kesediaan Anda dalam mengisi formulir registrasi penelitian. Kami akan memproses data yang telah Anda berikan. Hasil dari proses ini akan kami kirimkan melalui Email secepatnya.
+        <button onclick="location.reload();" class="btn-refresh">OK</button>
+    </div>
+    <div id="fileNotification" class="notification d-none">
+        Pastikan file zip/rar yang diunggah berisi:
+        <ul>
+            <li>KTP</li>
+            <li>Surat Pernyataan</li>
+            <li>Surat Permohonan dari Pemohon Rekomendasi Penelitian</li>
+            <li>Surat Pengantar dari Kampus/Lembaga</li>
+            <li>Proposal Penelitian</li>
+        </ul>
+        <p>Semua file dalam bentuk PDF.</p>
+        <p>Pastikan juga email dan nomor HP benar.</p>
+        <div class="button-container">
+            <button onclick="hideFileNotification();" class="btn-refresh">Edit</button>
+            <button onclick="proceedToUpload();" class="btn-refresh">Unggah</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal Loading -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Sedang mengirim data...</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="script.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Popup Modal Logo -->
+<div id="popupModal" class="popup-modal">
+  <div class="popup-content">
+    <img src="src/NEW_LOGO.jpg" alt="Logo Baru" class="popup-image">
+    <p style="margin-top: 10px; margin-bottom: 15px; font-weight: 500; font-size: 16px;">
+      Di Mohon Saat Mengisi Form, Setiap Awal Kata/Teks Menggunakan Huruf Kapital, Terima Kasih.
+    </p>
+    <button class="popup-ok" onclick="closePopup()">TUTUP</button>
+  </div>
+</div>
+<footer style="text-align: center; padding: 15px; font-size: 14px; color: #777;">
+  &copy; 2025 Badan Kesatuan Bangsa dan Politik Kabupaten Kudus. Seluruh hak cipta dilindungi undang-undang.<br>
+  Dikembangkan oleh Dimas Wahyu Damar Panuluh – Teknik Informatika, Universitas Muria Kudus.
+</footer>
+
+</body>
+</html>
